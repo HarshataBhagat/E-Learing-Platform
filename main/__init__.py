@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 
 
-app.secret_key = 'thisismysecretkeydonotstealitokay'
+app.secret_key = 'keyhere'
 csrf = CSRFProtect(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = "Database"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
