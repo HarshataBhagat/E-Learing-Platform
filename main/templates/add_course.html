@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<div class="d-flex flex-row " id="dashboar-wrapper" style="margin-top: 58px;">
+
+    <!-- sidebar -->
+    {% include 'instructor_sidebar.html' %}
+
+    <!-- page content -->
+    <div class="page-content-wrapper flex-fill" >
+        <div class="container-fluid"   style="padding-top: 30px;" >
+            <div class="container scroll" >
+
+                <div class="section-title">
+                  <h2> Add Courses</h2>
+                  <!-- <p>Courses</p> -->
+                </div> 
+            
+                <div class="main-container">
+                  <form  novalidate action="/instructor/add_course/{{id}}" method="POST"   enctype="multipart/form-data">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                      
+                
+                    <div class="control-group">
+                      <div class="form-group floating-label-form-group controls">
+                        <label>Course Title</label>
+                        <input type="text" name="course_name" class="form-control" placeholder="Title" id="course_name" required data-validation-required-message="Please enter Title." value="{{course.course_name}}">
+                        <p class="help-block text-danger"></p>
+                      </div>
+                    </div>
+
+                    
+                    <div class="control-group">
+                      <div class="form-group floating-label-form-group controls">
+                        <label>Select Category</label>
+                        {% if id == 0 %}  
+                          <select name="category" class="selectpicker form-control">
+                            {% for category in category_list  %}
+                            <option value="{{ category.id }}">{{category.name }}</option>
+                            {% endfor %}                                              
+                          </select>
+                        {% else %}
+                          <select name="category" class="selectpicker form-control">
+                            <option value="{{ course.category_id }}">{{course.category.name }}</option> 
+                            {% for category in category_list  %}
+                            <option value="{{ category.id }}">{{category.name }}</option>
+                            {% endfor %}                                            
+                          </select>
+                        {% endif %}
+                        <p class="help-block text-danger"></p>
+                      </div>
+                    </div>
+
+
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                          <label>Descripton</label>
+                          <input type="text" name="descripton" class="form-control" placeholder="descripton" id="descripton" required data-validation-required-message="Please enter descripton."  value="{{course.descripton}}">
+                          <p class="help-block text-danger"></p>
+                        </div>
+                      </div>
+                    
+                    <div class="control-group">
+                      <div class="form-group floating-label-form-group controls">
+                        <label>Price</label>
+                        <input type="number" step="0.01" name="price" class="form-control" placeholder="price" id="price" required data-validation-required-message="Please enter price."  value="{{course.price}}" >
+                        <p class="help-block text-danger"></p>
+                      </div>
+                    </div>
+                
+                    
+                    <div class="control-group">
+                      <div class="form-group floating-label-form-group controls">
+                        <label>Upload Image</label>
+                        <input type="text" name="img_file" class="form-control" placeholder="img_file" id="img_file" required data-validation-required-message="Please select img_file."  value="{{course.img_file}}" >
+                        <p class="help-block text-danger"></p>
+                      </div>
+                    </div>
+
+                
+                    
+                    <br>
+                    <div id="success"></div>
+                    <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+                  </form>
+                  
+                </div>
+            </div>    
+        </div>
+
+    </div>
+    
+</div>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

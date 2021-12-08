@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container-fluid" style="margin-top: 100px;" >
+
+
+
+<table style="width:100%">
+    <tr>
+      <th>sno</th>
+      <th>name</th>
+      <th>city</th>
+      <th>addr</th>
+      <th>pin</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+
+    {% for student in students %}
+    <tr>
+      <td>{{student.id}}</td>
+      <td>{{student.name}}</td>
+      <td>{{student.city}}</td>
+      <td>{{student.addr}}</td>
+      <td>{{student.pin}}</td>
+      <td><a href="/edit/{{student.id}}"><button class="table-btn btn1">Edit</button></a></td>
+      <td><a href="/delete/{{student.id}}"><button class="table-btn btn1">Delete</button></a></td>
+    </tr>
+    
+    {% endfor %}
+
+
+</table>
+
+</div>
+<a href="/edit/0"><button class="table-btn btn1">Add New Student</button></a>   
+{% endblock %}

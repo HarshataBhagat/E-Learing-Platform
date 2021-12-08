@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<div class="d-flex flex-row " id="dashboar-wrapper" style="margin-top: 58px;">
+
+    <!-- sidebar -->
+    {% include 'instructor_sidebar.html' %}
+
+    <!-- page content -->
+    <div class="page-content-wrapper flex-fill" >
+        <div class="container-fluid"   style="padding-top: 30px;" >
+            <div class="container scroll" >
+
+                <div class="section-title">
+                  <h2> List Of Category</h2>
+                  <!-- <p>Courses</p> -->
+                </div> 
+            
+                <div class="main-container">
+            
+                  <table class="table table-bordered table-hover ">
+                    <thead>
+                      <tr>
+                        <th scope="col">Sr NO.</th>
+                        <th scope="col">Name</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {%  for category in category_list %}
+            
+                        <tr>
+                            <th scope="row">{{ loop.index }}</th>
+                            <td>{{category.name}}</td>                                             
+                            <td><a href="/delete_category/{{category.id}}"><button class="btn btn-danger">Delete</button></a></td>
+                        </tr>
+                        {% endfor%}
+                    </tbody>
+                  </table>
+                </div>
+            </div>    
+        </div>
+
+    </div>
+    
+</div>
+
+
+
+
+{% endblock %}
+

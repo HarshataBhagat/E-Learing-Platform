@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block body %} 
+<div class="detail-course container-fluid">
+    <div class=" container-fluid">
+        <img style="height: 50vh; width:100%" src="/static/img/s7.jpg">
+
+        <section class="container" >
+            <div class=" d-flex justify-content-between align-items-center">
+                <div class="info-left" style="width: 40%;">
+                    <div class="course-info d-flex justify-content-between align-items-start">
+                        <h5 >Titel</h5>
+                        <h4>{{detail.course_name}}  </h4>
+                       
+                    </div>
+                    
+                    
+        
+                    <div class="course-info d-flex justify-content-between align-items-start">
+                        <h5>Trainer</h5>
+                        <p>{{detail.user_profile_instructor.username}}</p>
+                    </div>
+        
+                    <div class="course-info d-flex justify-content-between align-items-start">
+                        <h5>Course Fee</h5>
+                        <p>{{detail.price}}</p>
+                    </div>
+        
+                    <hr>
+                    <div class="course-info d-flex justify-content- align-items-start">
+                        <div>
+                            <h5>About the Course</h5>
+                            <p>{{detail.description}}</p>
+                            <a class="btn btn-success" href="/download_file"> Download info</a>
+
+                        </div>
+                        
+                        
+                    </div>
+  
+                </div>
+                <div class="info-right" >
+                    <ul>
+                        <li>
+                            <h5>Shareable Certificate</h5>
+                            <p>Earn a Certificate upon completion</p>
+                        </li>
+                        <li>
+                            <h5>100% online courses</h5>
+                            <p>Start instantly and learn at your own schedule.</p>
+                        </li>
+                        <li>
+                            <h5>Flexible Schedule</h5>
+                            <p>Set and maintain flexible deadlines.</p>
+                        </li>
+                        <li>
+                            <h5>Intermediate Level</h5>
+                            <p>Some related experience required.</p>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+            
+            
+
+
+
+
+        </section>
+
+        
+
+
+    </div>    
+</div>
+
+{% endblock%}

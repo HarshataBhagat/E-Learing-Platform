@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<div class="d-flex flex-row " id="dashboar-wrapper" style="margin-top: 58px;">
+
+    <!-- sidebar -->
+    {% include 'instructor_sidebar.html' %}
+
+    <!-- page content -->
+    <div class="page-content-wrapper flex-fill" >
+        <div class="container-fluid"   style="padding-top: 30px;" >
+            <div class="container scroll" >
+
+                <div class="section-title">
+                  <h2> Add Category</h2>
+                  <!-- <p>Courses</p> -->
+                </div> 
+            
+                <div class="main-container">
+                  <form  novalidate action="/instructor/add_category/{{id}}" method="POST" >
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                      
+                
+                    <div class="control-group">
+                      <div class="form-group floating-label-form-group controls">
+                        <label>Category Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="name" id="name" required data-validation-required-message="Please enter name." value="">
+                        <p class="help-block text-danger"></p>
+                      </div>
+                    </div>
+                     
+                
+                    
+                    <br>
+                    <div id="success"></div>
+                    <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+                  </form>
+                  
+                </div>
+            </div>    
+        </div>
+
+    </div>
+    
+</div>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

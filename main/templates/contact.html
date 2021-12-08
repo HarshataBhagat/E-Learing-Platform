@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block body %}
+<section class=" container">
+    <form action="/contact" method="POST" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <div class="mb-3">
+            <label for="exampleInputFName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="exampleInputFName" name="first_name" >            
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputLName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="exampleInputLName" name="last_name" >            
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <input type="text" class="form-control" id="message" name="message" >            
+        </div>
+        <div class="mb-3">
+            <label for="quantity" class="form-label">Quantity:</label>
+            <input type="number" class="form-control"  id="quantity" name="quantity">                 
+        </div>
+        
+       
+        
+        <div class="mb-3">
+            <label for="exampleInputFile" class="form-label">Upload A file</label>
+            <input type="file" class="form-control" name="file1" id="exampleInputPassword1">
+        </div>
+        
+        {{form.recaptcha}}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    
+</section>
+
+
+{% endblock %}
